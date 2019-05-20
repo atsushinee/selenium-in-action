@@ -4,7 +4,7 @@
         xsi:noNamespaceSchemaLocation="http://www.padual.com/java/logback.xsd"
         debug="false" scan="true" scanPeriod="30 second">
 
-    <property name="PROJECT" value="iorder" />
+    <property name="PROJECT" value="sina" />
     <property name="ROOT" value="logs/${PROJECT}/" />
     <property name="FILESIZE" value="50MB" />
     <property name="MAXHISTORY" value="100" />
@@ -15,6 +15,9 @@
             <pattern>[%-5level] %d{${DATETIME}} [%thread] %logger{36} - %m%n
             </pattern>
         </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
     </appender>
     <!-- ERROR 输入到文件，按日期和文件大小 -->
     <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">

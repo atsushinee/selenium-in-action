@@ -8,7 +8,7 @@ public class RedisCache implements IWeiboCache {
 
     @Override
     public void put(String key, String value) {
-        LettuceClient.put(prefix + key, value);
+        LettuceClient.set(prefix + key, value);
     }
 
     @Override
