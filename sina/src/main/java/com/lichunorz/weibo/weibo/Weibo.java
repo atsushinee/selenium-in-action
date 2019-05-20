@@ -128,7 +128,7 @@ public class Weibo {
             System.out.printf("=================================第 %d 条=======================================\n", i);
 
             try {
-                driver.sleep(1);
+                driver.sleep(20);
 
                 String title = driver.x("(//*[@class=\"W_f14 W_fb S_txt1\"])[%d]", i).getText();
                 String time = driver.x("(//*[@class=\"WB_detail\"]/*[@class=\"WB_from S_txt2\"]/a[1])[%d]", i).getAttribute("title");
@@ -157,7 +157,9 @@ public class Weibo {
 //                        }
 
                 String reply = weiboComment.comment(content);
+                driver.sleep(4);
 
+                //*[@id="v6_pl_content_homefeed"]/div/div[4]/div[2]/div[2]/div/ul/li[3]/a
                 driver.x("//*[@id=\"v6_pl_content_homefeed\"]/div/div[4]/div[%d]/div[2]/div/ul/li[3]/a", i).click();
                 driver.sleep(2);
                 final String info = driver.x("//*[@id=\"v6_pl_content_homefeed\"]/div/div[4]/div[%d]/div[3]/div/div/div[1]/p[2]", i)
